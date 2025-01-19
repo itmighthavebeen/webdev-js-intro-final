@@ -19,6 +19,8 @@
                     name=""
                     id="guess-input"
                     placeholder="Enter Number"
+                    min = "1";
+                    max = "10";
                 />
 
                 <div class="guess-container">
@@ -37,7 +39,8 @@
                 <div class="btn-container">
                     <button id="submit-btn" class="btn">Submit Guess</button>
                     <button id="restart-btn" class="btn" disabled>
-                        Restart
+                    
+                        <span id="highlight-r">R</span>estart
                     </button>
                 </div>
             </article>

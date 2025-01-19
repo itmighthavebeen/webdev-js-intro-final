@@ -9,7 +9,10 @@ body {
     display: flex;
     flex: 1;
 }
-
+#highlight-r {
+    font-weight: bold;
+    color: red;
+}
 .game-container {
     display: flex;
     flex-direction: column;
@@ -28,6 +31,26 @@ body {
     text-align: center;
     margin: 1rem;
 }
+.correct {
+    color: green;
+}
+
+.too-high {
+    color: orangered;
+}
+
+.too-low {
+    color: blue;
+}
+
+.invalid {
+    color: hotpink;
+}
+
+.game-over {
+    color: purple;
+}
+
 
 .number-input {
     background-color: white;
@@ -41,7 +64,16 @@ body {
     flex-direction: column;
     margin: 1rem 0;
     width: 90%;
+    font-weight: bold; /* This makes the text bold */
+    
+
 }
+/* Bolden game result message 
+#guess-message {
+    font-weight: bold; 
+    
+}*/
+
 
 .text {
     padding: .5rem 0;
@@ -53,7 +85,10 @@ body {
     width: 100%;
     padding: 1rem;
 }
-
+#restart-btn.highlight #highlight-r {
+    color: yellow;
+    font-weight: bolder;
+}
 .btn {
     background-color: #04AA6D;
     border: none;
