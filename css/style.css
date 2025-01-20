@@ -43,6 +43,7 @@ body {
     color: blue;
 }
 
+
 .invalid {
     color: hotpink;
 }
@@ -51,12 +52,13 @@ body {
     color: purple;
 }
 
-
-.number-input {
+.number-input,
+input:focus,button:focus {
     background-color: white;
     margin: .25rem .5rem;
     text-align: center;
     width: 35%;
+    outline: 4px solid black;
 }
 
 .guess-container {
@@ -68,12 +70,6 @@ body {
     
 
 }
-/* Bolden game result message 
-#guess-message {
-    font-weight: bold; 
-    
-}*/
-
 
 .text {
     padding: .5rem 0;
@@ -85,12 +81,15 @@ body {
     width: 100%;
     padding: 1rem;
 }
-#restart-btn.highlight #highlight-r {
-    color: yellow;
+#restart-btn.highlight #highlight-r,
+#restart-btn:focus {
+    color: black;
     font-weight: bolder;
+    outline: 3px solid white;
 }
+
 .btn {
-    background-color: #04AA6D;
+    background-color: black;
     border: none;
     color: white;
     padding: .5rem 1rem;

@@ -9,9 +9,10 @@
     <body>
         <main class="main">
             <article class="game-container">
-                <h1 class="game-title">Guess the Number</h1>
-                <p class="game-message">
-                    Try to guess the computer's number within 3 tries!
+                <h1 class="game-title" id="game-title" aria-label="Guess the Number in 3 tries">Guess the Number</h1>
+                <p class="game-message" role="status" aria-live="assertive" id="game-message">
+                    Try to guess the Random number within 3 tries! The computer is also guessing and playing against you!
+            
                 </p>
                 <input
                     class="number-input"
@@ -19,27 +20,41 @@
                     name=""
                     id="guess-input"
                     placeholder="Enter Number"
-                    min = "1";
-                    max = "10";
+                    min = "1"
+                    max = "10"
+                    aria-label="Input field for guessing a number between 1 and 10"
+                    tabindex="0"
                 />
 
                 <div class="guess-container">
-                    <p class="text">Result: <span id="guess-message"></span></p>
+                    <p class="text"><span id="guess-message" role="Alert" aria-live="assertive"
+                    tabindex="1">
+                        </span></p>
+
                     <p class="text">
-                        Your Guess: <span id="current-guess"></span>
+                        <span id="current-guess"
+                        aria-label="Your Guess"
+                        role="status" aria-live="assertive"
+                        tabindex="2">
+                        </span>
                     </p>
                     <p class="text">
-                        Computer Guess: <span id="computer-guess"></span>
+                        <span id="computer-guess"
+                        aria-label="computer guess"
+                        aria-live="polite"
+                        tabindex="3"></span>
                     </p>
                     <p class="text">
-                        Guess History: <span id="guess-history"></span>
+                        <span id="guess-history"
+                        aria-live="polite"
+                        tabindex="4"></span>
                     </p>
                 </div>
 
                 <div class="btn-container">
                     <button id="submit-btn" class="btn">Submit Guess</button>
-                    <button id="restart-btn" class="btn" disabled>
-                    
+                    <button id="restart-btn" class="btn" disabled
+                        aria-label="Restart the game">
                         <span id="highlight-r">R</span>estart
                     </button>
                 </div>

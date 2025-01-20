@@ -60,9 +60,13 @@ If you get stuck, write psuedocode and break the game's functionality and logic 
 After completing the assignment, make sure to commit your changes and push them back to your own repository and turn in the GitHub link in Google Classroom.
 
 
-### updates tried in version 1
+### updates tried in version 1 commit
 1. tried playing against the computer with the computer getting smarter at guesses
 2. enable the enter key so you dont have to hit submit
 3. created a ctrl R shortcut to replay
 4. changed colors on result output
 
+### updates tried in version 2 commit
+1. give credit to the computer if it also guessed correctly on the last try
+2. add accessibility features. 
+3. tested with NVDA screen reader to make sure the screen spoke the necessary info if needed. this involved changing the html. a lot harder that it looks for me!

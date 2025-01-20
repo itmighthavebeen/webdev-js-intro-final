@@ -70,50 +70,58 @@ function submitGuess() {
 
     if (isNaN(userGuess) || userGuess < 1 || userGuess > 10) {
         clearClassList();
-        guessMessage.textContent = "Please enter a valid number between 1 and 10.Remember youare playing against the computer-think wisely!";
+        guessMessage.textContent = "Please enter a valid number between 1 and 10.Remember you are playing against the computer-think wisely!";
         guessMessage.classList.add("invalid");
         clearInputField();
         return;
     }
-
-    // 
+  
+    // Update the current guess displayed
+    currentGuess.textContent = `Current Guess= ${userGuess}`;
+   
+// 
     //add to the guess array
     allYourGuesses.push(userGuess);
-    allYourGuessesElem.textContent = allYourGuesses.join(", ");
-
-    // Update the current guess displayed
-    currentGuess.textContent = userGuess;
-
+    allYourGuessesElem.textContent = `Guess History= ${allYourGuesses.join(", ")}`;
 
 if (!computerGuessedCorrectly) {
     const compGuess = Math.floor((minRange + maxRange) / 2);
-    computerGuess.textContent = compGuess;
-
-    if (compGuess === randomNumberAnswer) {
+    computerGuess.textContent = `Computer Guess= ${compGuess}`;
+ 
+    // Check if the guess is correct
+    if (userGuess === randomNumberAnswer && compGuess === randomNumberAnswer) {
         computerGuessedCorrectly = true;
-        guessMessage.textContent = `The computer guessed the number: ${compGuess} and won!`;
+        clearClassList();
+        guessMessage.textContent = `Result is Correct! You and the computer both guessed the number of ${randomNumberAnswer}. Hit Restart or CTRL R to restart the game. Good Luck!`;
+        guessMessage.classList.add("correct");
+        submitBtn.disabled = true;
+        guessInput.disabled = true;
+        restartBtn.disabled = false;
+    } else if (userGuess === randomNumberAnswer){
+        clearClassList();
+        guessMessage.textContent = `Result is Correct! You guessed the number of ${randomNumberAnswer}. Hit Restart or CTRL R to restart the game. Good Luck!`;
+        guessMessage.classList.add("correct");
+        submitBtn.disabled = true;
+        guessInput.disabled = true;
+        restartBtn.disabled = false;
+    }
+    else if (compGuess === randomNumberAnswer) {
+        computerGuessedCorrectly = true;
+        guessMessage.textContent = `Result is The computer guessed the number ${compGuess} and won! Hit Restart or CTRL R to restart the game. Good Luck!`;
         guessMessage.classList.add("correct");
         clearClassList;
         submitBtn.disabled = true;
         guessInput.disabled = true;
         restartBtn.disabled = false;
     }
-    // Check if the guess is correct
-    if (userGuess === randomNumberAnswer) {
-        clearClassList();
-        guessMessage.textContent = `Correct! You guessed the number of ${randomNumberAnswer}. Hit Restart or CTRL R to restart the game. Good Luck!`;
-        guessMessage.classList.add("correct");
-        submitBtn.disabled = true;
-        guessInput.disabled = true;
-        restartBtn.disabled = false;
-    } else {
+        else {
         //subtract from the number of tries
         triesRemaining--;
 
         if (triesRemaining === 0) {
             let difference = randomNumberAnswer - userGuess;
             clearClassList();
-            guessMessage.textContent = `3 guesses have been made. Game over! The number was ${randomNumberAnswer}. You were off by ${Math.abs(difference)}.`;
+            guessMessage.textContent = `Result is 3 guesses have been made. Game over! The number was ${randomNumberAnswer}. You were off by ${Math.abs(difference)}. Hit Restart or CTRL R to restart the game. Good Luck!`;
             guessMessage.classList.add("game-over");
 
             submitBtn.disabled = true;
@@ -123,11 +131,12 @@ if (!computerGuessedCorrectly) {
                // decide whether the guess is too high or too low
                 clearClassList();
                 if (userGuess > randomNumberAnswer) {
-                    guessMessage.textContent = "Tone it down...Too high! Try again.";
+                    guessMessage.textContent = "Result of guess is Tone it down...Too high! Try again.";
                     guessMessage.classList.add("too-high"); 
                     maxRange = userGuess - 1;
+
                 } else {
-                    guessMessage.textContent = "Uh oh...Too low! Try again.";
+                    guessMessage.textContent = "Result of guess is Uh oh...Too low! Try again.";
                     guessMessage.classList.add("too-low"); 
                     minRange = userGuess + 1;
                 }
@@ -138,11 +147,7 @@ if (!computerGuessedCorrectly) {
 
     
     }
-    //took this code out to make the computer guess smarter
-    //  const compGuess = Math.floor((minRange + maxRange) / 2);
-   //         computerGuess.textContent = compGuess;
-   // const compGuess = Math.floor(Math.random() * 10) + 1;
-   // computerGuess.textContent = compGuess;
+   
 }
 
 // Function to restart the game
